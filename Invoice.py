@@ -27,6 +27,17 @@ class Invoice:
         total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total_pure_price
 
+    def extraDiscount(self, products):
+        if (self.totalPurePrice(products) > 50):
+            extra_discount = 5
+        else:
+           extra_discount = 0
+        return extra_discount
+
+    def totalFinalPrice(self, products):
+        total_final_price = self.totalPurePrice(products) - self.extraDiscount(products)
+        return total_final_price
+
     def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)
